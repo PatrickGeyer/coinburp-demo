@@ -30,7 +30,7 @@ POST auth/login (returns jwt token based on email & password provided)
 
 It uses a basic middleware function to parse the `x-access-token` header for every request if provided, and attaches the verified user details to the request object to be used downstream.
 
-Then, there are two global guards applied. The `RolesGuard` and `RateLimitGuard`. A guard is an interface for a piece of middleware in NestJS that exposes the method `canActivate` to check if the current request should proceed executing. 
+Then, there are two global guards applied. The `RolesGuard` and `RateLimitGuard`. A guard is an interface for a piece of middleware in NestJS (a framework built on express) that exposes the method `canActivate` to check if the current request should proceed executing. 
 For every incoming request, we can check the metadata attached to the endpoint that is about to be accessed, in order to see if we need to restrict access or apply rate limiting.
 The metadata is attached to controller routes via the custom decorators `Roles('admin' | 'user')` and `RateLimit(1: number, 'hour')`.
 
