@@ -1,0 +1,3 @@
+export const config = {
+    secret: 'C9NECT8RFdNkaaqBuFZQzW0LflG1ZGolDggVJRIz8XK0MPvb7YC+XzWnb94RYP9tWc2seBNNYCtseknhKciS5yb3gd3Fur7nrMz8rEUh/+QcpgmnxFjdrvOqu1V6ozO3MQb09agVRf/lsmeHUPqTgUgQMFWvW0ZLtJhScwz//83iI4TOF/9OY4/YSIVpiNDCyP25yGpI0MgtDlSlAU+wlSxS9Gkzxwjm8ljrLvCOsvoyHkVAmVnnHAqlptZQ+VL/JP6bhm6qJUgrjXu+Ehz7dypIy0Vqqxumy6QgNB+TwKmm6SaQdUw/EgM9W9lhsELBUYY+/VDpfovaREwRMUd54Q=='
+}
