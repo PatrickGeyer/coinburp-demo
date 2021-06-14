@@ -1,5 +1,5 @@
 
-# Coinburp Demo (Auth & Rate Limiter)
+# CoinBurp Demo (Auth & Rate Limiter)
 
 ## Installation
 
