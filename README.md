@@ -41,7 +41,7 @@ E.g.
 @Roles('admin')
 restrictedEndpoint() {
   // Application has the global RolesGuard middleware attached. The middleware executes before this function is reached. (main.ts useGlobalGuard)
-  // On a request, it reads the 'roles' metadata applied this endpoint function to determine if the requesting user is able to access it.
+  // When the roles middleware receives the request, it reads the 'roles' metadata applied this endpoint function to determine if the requesting user is able to access it.
   return x;
 }
 ```
