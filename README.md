@@ -1,5 +1,5 @@
 
-# Coinburp Demo (Authentication & Rate Limiter)
+# Coinburp Demo (Auth & Rate Limiter)
 
 ## Installation
 
@@ -14,7 +14,7 @@ To login, run the following command:
 ```export AUTH_TOKEN=$(curl localhost:3000/auth/login -X POST -d '{"email": "admin@coinburp.com", "password": "password"}' -H "Content-Type: application/json")```
 Can login as admin@coinburp.com or user@coinburp.com. Password="password" for both.
 
-To hit an endpoint, use the following command `curl localhost:3000/trade  -H 'x-access-token: '$AUTH_TOKEN''`
+To hit an endpoint, use the following command for example: `curl localhost:3000/trade  -H 'x-access-token: '$AUTH_TOKEN''`
 
 A selection of tests can be found in the `test` directory. To run them use `npm run test:e2e`
 ## About
