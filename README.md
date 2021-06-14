@@ -40,8 +40,8 @@ E.g.
 @Get('admin-endpoint')
 @Roles('admin')
 restrictedEndpoint() {
-  // Application has the global RolesGuard middleware attached. Executes before this function is reached. (main.ts useGlobalGuard)
-  // On a request, it reads the metadata applied this function to determine if the requesting user is able to access this endpoint.
+  // Application has the global RolesGuard middleware attached. The middleware executes before this function is reached. (main.ts useGlobalGuard)
+  // On a request, it reads the 'roles' metadata applied this endpoint function to determine if the requesting user is able to access it.
   return x;
 }
 ```

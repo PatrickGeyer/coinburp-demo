@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { UnauthorizedException } from '@nestjs/common';
 import { config } from '../config';
 import * as jwt from 'jsonwebtoken';
 import { Role } from './guards/role.enum';
@@ -10,7 +10,7 @@ export class AuthService {
         const user = users.find(i => i.email === email && i.password === password);
 
         if (!user)
-            throw new ForbiddenException(`Username or password is incorrect`);
+            throw new UnauthorizedException(`Username or password is incorrect`);
 
         return jwt.sign({
             uid: user.id,

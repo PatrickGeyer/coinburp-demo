@@ -40,7 +40,7 @@ describe('App', () => {
           email: 'admin@coinburp.com',
           password: 'wrong'
         })
-        .expect(403);
+        .expect(401);
     });
   })
 
@@ -57,7 +57,7 @@ describe('App', () => {
     it('should reject unauthenticated user from accessing endpoint', () => {
       return request(app.getHttpServer())
         .get('/trade')
-        .expect(403);
+        .expect(401);
     });
 
     it('should reject user from accessing admin endpoint', () => {
