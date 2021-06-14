@@ -16,7 +16,7 @@ Can login as admin@coinburp.com or user@coinburp.com. Password="password" for bo
 
 To hit an endpoint, use the following command `curl localhost:3000/trade  -H 'x-access-token: '$AUTH_TOKEN''`
 
-A selection of tests can be found in the `test` directory.
+A selection of tests can be found in the `test` directory. To run them use `npm run test:e2e`
 ## About
 The app consists of the following endpoints: 
 
@@ -28,8 +28,22 @@ GET users (must be authenticated admin)
 POST auth/login (returns jwt token based on email & password provided)
 ```
 
-It uses a basic middleware function to parse the ```x-access-token``` header for every request if provided, and attaches the verified user details to the request object to be used downstream.
+It uses a basic middleware function to parse the `x-access-token` header for every request if provided, and attaches the verified user details to the request object to be used downstream.
 
-Then, there are two global guards applied. The ```RolesGuard``` and ```RateLimitGuard```. A guard is an interface for a piece of middleware in NestJS that exposes the method canActivate to check if the current request should proceed executing. 
+Then, there are two global guards applied. The `RolesGuard` and `RateLimitGuard`. A guard is an interface for a piece of middleware in NestJS that exposes the method `canActivate` to check if the current request should proceed executing. 
 For every incoming request, we can check the metadata attached to the endpoint that is about to be accessed, in order to see if we need to restrict access or apply rate limiting.
-The metadata is attached to controller routes via the custom decorators ```Roles('admin' | 'user')``` and ```RateLimit(1: number, 'hour')```
+The metadata is attached to controller routes via the custom decorators `Roles('admin' | 'user')` and `RateLimit(1: number, 'hour')`.
+
+E.g.
+
+```
+@Get('admin-endpoint')
+@Roles('admin')
+restrictedEndpoint() {
+  // NestJS will have internally applied the RolesGuard middleware (main.ts useGlobalGuard)
+  // On a request, it reads the metadata applied this function to determine if the requesting user is able to access this endpoint.
+  return x;
+}
+```
+
+Happy coding!
