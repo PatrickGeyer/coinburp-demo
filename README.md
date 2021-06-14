@@ -40,7 +40,7 @@ E.g.
 @Get('admin-endpoint')
 @Roles('admin')
 restrictedEndpoint() {
-  // NestJS will have internally applied the RolesGuard middleware (main.ts useGlobalGuard)
+  // Application has the global RolesGuard middleware attached. Executes before this function is reached. (main.ts useGlobalGuard)
   // On a request, it reads the metadata applied this function to determine if the requesting user is able to access this endpoint.
   return x;
 }
