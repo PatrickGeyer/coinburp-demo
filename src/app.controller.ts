@@ -8,7 +8,7 @@ import { RateLimit } from './auth/guards/decorator/rate-limit.decorator';
 @Controller()
 export class AppController {
 
-  // Any logged in user can view price endpoint, but is rate limited
+  // Any logged in user can view trade endpoint, but is rate limited
   @Get('trade')
   @Roles(Role.User)
   @RateLimit(1, 'hour')

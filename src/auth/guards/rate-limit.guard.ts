@@ -7,6 +7,7 @@ export class RateLimitGuard implements CanActivate {
 
   constructor(private reflector: Reflector) { }
 
+  // Stores list of requests that have entered the application
   private requests: { uid: number, endpoint: string, time: Date }[] = []
 
   canActivate(context: ExecutionContext): boolean {
